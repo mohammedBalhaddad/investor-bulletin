@@ -1,8 +1,5 @@
 {
-  "cSpell.words": [
-    "cockroachdb",
-    "Twelvedata"
-  ],
+  "cSpell.words": ["cockroachdb", "Twelvedata"],
   "editor.wordWrap": "wordWrapColumn",
   "python.analysis.indexing": true,
   "python.analysis.autoSearchPaths": true,
@@ -11,7 +8,7 @@
   "python.autoComplete.extraPaths": [
     "../phase_1/investor_bulletin",
     "../phase_2/investor_bulletin",
-    "../phase_3/investor_bulletin",
+    "../phase_3/investor_bulletin"
   ],
   "git.enableSmartCommit": true,
   "git.autofetch": true,
@@ -22,4 +19,9 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "python.analysis.extraPaths": [
+    "../phase_1/investor_bulletin",
+    "../phase_2/investor_bulletin",
+    "../phase_3/investor_bulletin"
+  ]
 }
