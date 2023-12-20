@@ -12,11 +12,11 @@ querystring = {
     "format":"json",
     "outputsize":"30"
 }
-headers = {
-    "X-RapidAPI-Key": os.environ.get('RAPID_API_KEY'),
-    "X-RapidAPI-Host": "twelve-data1.p.rapidapi.com"
-}
+
 
 def get_market_data():
-    response = requests.get(url, headers=headers, params=querystring)
+    response = requests.get(url, headers={
+        "X-RapidAPI-Key": os.environ.get('RAPID_API_KEY'),
+        "X-RapidAPI-Host": "twelve-data1.p.rapidapi.com"
+    }, params=querystring)
     return response.json()

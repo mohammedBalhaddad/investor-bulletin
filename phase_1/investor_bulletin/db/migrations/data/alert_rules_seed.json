@@ -1,0 +1,22 @@
+[
+  {
+    "name": "AAPL alert",
+    "price_threshold": 1000,
+    "symbol": "AAPL"
+  },
+  {
+    "name": "GOOG alert",
+    "price_threshold": 1000,
+    "symbol": "GOOG"
+  },
+  {
+    "name": "AMZN alert",
+    "price_threshold": 1000,
+    "symbol": "AMZN"
+  },
+  {
+    "name": "META alert",
+    "price_threshold": 1000,
+    "symbol": "META"
+  }
+]
