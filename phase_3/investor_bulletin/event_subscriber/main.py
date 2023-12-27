@@ -10,9 +10,8 @@ def init_subscriber():
 
 def on_event(ch, method, properties, body):
   db_session = next(get_session())
-  print(f"Received new message {body}")
-  # TODO : Need to be in a tansactions
   rule_id = json.loads(body)['alert_rule_id']
+  # TODO : Need to be in a tansactions
   new_alert =  AlertCreate(alert_rule_id = rule_id )
   create_alert(session=db_session,alert=new_alert)# create alert
   mark_alert_rule_notified(session=db_session,alert_rule_id=rule_id) # update rule isNotified to true

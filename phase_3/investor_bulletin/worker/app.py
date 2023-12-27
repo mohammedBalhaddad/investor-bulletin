@@ -1,17 +1,12 @@
 import json
-from math import e
-from venv import create
 from amqpstorm import Message
 from amqpstorm import Connection
 from celery import Celery
 from datetime import timedelta
-from time import sleep
 
 from sqlalchemy import null
-from resources.alerts.alert_schema import AlertCreate
 from resources.market.market_service import get_market_data
-from resources.alert_rules.alert_rule_dal import get_alert_rules,update_alert_rule_by_id,mark_alert_rule_notified
-from resources.alerts.alert_dal import create_alert
+from resources.alert_rules.alert_rule_dal import get_alert_rules
 from dotenv import load_dotenv
 from db.models.model_base import get_session
 
@@ -29,7 +24,7 @@ app = Celery('app', broker='pyamqp://guest@localhost//',backend='rpc://')
 app.conf.beat_schedule = {
     'fetch-every-5-seconds': {
         'task': 'worker.app.get_market_data_task',
-        'schedule': timedelta(seconds=10),
+        'schedule': timedelta(minutes=5),
     },
 }
 app.conf.timezone = 'UTC'
@@ -41,13 +36,6 @@ last_prices = {};
 
 @app.task
 def get_market_data_task():
-  # last_prices['AAPL'] = 293.53000 ;
-  # last_prices['MSFT'] = 374.60501 ;
-  # last_prices['GOOG'] = 142.75999 ;
-  # last_prices['AMZN'] = 153.44501 ;
-  # last_prices['META'] = 353.42001 ;
-
-
   db_session = next(get_session())
 
   try:
@@ -69,7 +57,6 @@ def get_market_data_task():
 
     # loop on each symbol from the market data
     for symbol,price_dict in market_data.items():
-      # print(price_dict)
       price = float(price_dict['price'])
       if symbol in last_prices:
         filtered_rules = list(filter(lambda rule: rule.symbol == symbol and rule.isNotified == False, rules))
