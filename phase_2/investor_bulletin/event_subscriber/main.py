@@ -7,6 +7,7 @@ def init_subscriber():
 def on_event(ch, method, properties, body):
       print(f"Received new message {body}")
 
+
 if __name__ == "__main__":
     subscriber = init_subscriber()
     channel = subscriber.channel()

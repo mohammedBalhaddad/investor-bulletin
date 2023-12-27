@@ -1,0 +1,27 @@
+[
+  {
+    "name": "AAPL alert",
+    "price_threshold": 200,
+    "symbol": "AAPL"
+  },
+  {
+    "name": "GOOG alert",
+    "price_threshold": 150,
+    "symbol": "GOOG"
+  },
+  {
+    "name": "AMZN alert",
+    "price_threshold": 160,
+    "symbol": "AMZN"
+  },
+  {
+    "name": "META alert",
+    "price_threshold": 350,
+    "symbol": "META"
+  },
+  {
+    "name": "MSFT alert",
+    "price_threshold": 350,
+    "symbol": "MSFT"
+  }
+]

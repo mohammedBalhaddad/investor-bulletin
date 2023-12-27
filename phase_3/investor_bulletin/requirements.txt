@@ -1,0 +1,22 @@
+# HTTP
+fastapi
+uvicorn
+pydantic
+requests
+
+# Environment
+python-dotenv
+
+# Database
+sqlalchemy
+psycopg2-binary
+sqlalchemy-cockroachdb
+alembic
+
+# Messageing
+amqpstorm
+pika
+
+# Queuing and Scheduling
+celery
+# celery-beat
